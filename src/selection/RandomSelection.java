@@ -13,7 +13,7 @@ public class RandomSelection extends BaseSelection {
 
 		while (newPop.size() < amount) {
 			int r = (int) (Math.random() * population.size());
-			newPop.add(population.getDNA(r));
+			newPop.add(population.get(r));
 		}
 
 		return newPop;

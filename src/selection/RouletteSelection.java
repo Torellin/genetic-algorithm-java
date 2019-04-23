@@ -10,7 +10,7 @@ public class RouletteSelection extends BaseSelection {
 	@Override
 	public Population select(Population population, int amount) {
 		Population newPop = new Population(population.getMaxSize());
-		Collections.sort(population.getDNAs(), Collections.reverseOrder());
+		Collections.sort(population, Collections.reverseOrder());
 
 		while (newPop.size() < amount) {
 			newPop.add(select(population));
@@ -24,7 +24,7 @@ public class RouletteSelection extends BaseSelection {
 		double weight_sum = population.getFitness();
 		double value = Math.random() * weight_sum;
 
-		for (DNA dna : population.getDNAs()) {
+		for (DNA dna : population) {
 			value -= dna.getFitness();
 
 			if (value < 0) {
@@ -32,7 +32,7 @@ public class RouletteSelection extends BaseSelection {
 			}
 		}
 
-		return population.getDNA(population.size() - 1);
+		return population.get(population.size() - 1);
 	}
 
 }

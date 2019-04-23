@@ -41,13 +41,6 @@ public class GABuilder {
 
 		GA ga = new GA();
 
-		System.out.println(_maxGenerations);
-		System.out.println(_mutations);
-		System.out.println(_populationSize);
-		System.out.println(_mMutationProbability);
-		System.out.println(_survivers);
-		System.out.println(_geneSize);
-
 		ga.mMaxGenerations = _maxGenerations;
 		ga.mMutations = _mutations;
 		ga.mPopulationSize = _populationSize;

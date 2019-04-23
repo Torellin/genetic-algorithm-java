@@ -16,7 +16,7 @@ public abstract class BaseCrossover implements CrossoverStrategy {
 		while (!population.isFull()) {
 			int one = random.nextInt(startSize);
 			int two = random.nextInt(startSize);
-			DNA child = crossover(population.getDNA(one), population.getDNA(two));
+			DNA child = crossover(population.get(one), population.get(two));
 
 			population.add(child);
 		}

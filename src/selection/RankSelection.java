@@ -9,7 +9,7 @@ public class RankSelection extends BaseSelection {
 
 	@Override
 	public Population select(Population population, int amount) {
-		Collections.sort(population.getDNAs(), Collections.reverseOrder());
+		Collections.sort(population, Collections.reverseOrder());
 		Population newPop = new Population(population.getMaxSize());
 
 		while (newPop.size() < amount) {
@@ -35,6 +35,6 @@ public class RankSelection extends BaseSelection {
 			}
 		}
 
-		return population.getDNA(i);
+		return population.get(i);
 	}
 }

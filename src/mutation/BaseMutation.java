@@ -16,7 +16,7 @@ public abstract class BaseMutation implements MutationStrategy {
 
 		for (int i = 0; i < mutations; i++) {
 			int r = elites + random.nextInt(population.size() - elites);
-			mutate(population.getDNA(r), prob);
+			mutate(population.get(r), prob);
 		}
 	}
 

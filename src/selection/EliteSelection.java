@@ -10,7 +10,7 @@ public class EliteSelection extends BaseSelection {
 	public Population select(Population population, int amount) {
 		// Clip amount
 		amount = Math.min(amount, population.size());
-		Collections.sort(population.getDNAs(), Collections.reverseOrder());
+		Collections.sort(population, Collections.reverseOrder());
 
 		while (population.size() > amount) {
 			population.remove(population.size() - 1);

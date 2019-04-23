@@ -2,37 +2,27 @@ package model;
 
 import java.util.ArrayList;
 
-public class Population {
+public class Population extends ArrayList<DNA> {
 
-	private ArrayList<DNA> mDNAs;
+	private static final long serialVersionUID = 8994659318395544380L;
+
 	private double mFitnessSum;
 	private int mMaxSize;
 
 	public Population(int maxSize) {
-		mDNAs = new ArrayList<>();
 		mMaxSize = maxSize;
 	}
 
-	public void add(DNA dna) {
-		if (mDNAs.size() < mMaxSize) {
-			mDNAs.add(dna);
-		}
-	}
+	@Override
+	public boolean add(DNA dna) {
+		if (isFull())
+			return false;
 
-	public void remove(int idx) {
-		mDNAs.remove(idx);
-	}
-
-	public ArrayList<DNA> getDNAs() {
-		return mDNAs;
+		return super.add(dna);
 	}
 
 	public boolean isFull() {
-		return mDNAs.size() == mMaxSize;
-	}
-
-	public int size() {
-		return mDNAs.size();
+		return size() >= mMaxSize;
 	}
 
 	public int getMaxSize() {
@@ -43,15 +33,11 @@ public class Population {
 		return mFitnessSum;
 	}
 
-	public DNA getDNA(int idx) {
-		return mDNAs.get(idx);
-	}
-
 	public DNA getBest() {
 		DNA best = null;
 		double bestFitness = -Double.MAX_VALUE;
 
-		for (DNA dna : mDNAs) {
+		for (DNA dna : this) {
 			if (dna.getFitness() > bestFitness) {
 				best = dna;
 				bestFitness = dna.getFitness();

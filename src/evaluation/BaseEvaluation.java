@@ -9,7 +9,7 @@ public abstract class BaseEvaluation implements EvaluationStrategy {
 	public void evaluate(Population population) {
 		double sum = 0;
 
-		for (DNA gene : population.getDNAs()) {
+		for (DNA gene : population) {
 			double fitness = evaluate(gene);
 			gene.setFitness(fitness);
 			sum += fitness;
